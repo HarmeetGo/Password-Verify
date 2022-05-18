@@ -77,12 +77,32 @@ namespace Problem
 
 
         }
+        public static Boolean ValidateNull(String password)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    throw new Exception("The password cannot be null");
+                   
+                }
+                return true;
+
+            }
+            catch (Exception e)
+            {
+                //    Console.WriteLine(e.Message);
+                return false;
+            }
+        }
+
 
         public static Boolean IsPasswordValid(String password)
         {
             Boolean passLength = PasswordLength(password);
             Boolean upperAndLowerPresent = IsUpperAndLowerCasePresent(password);
             Boolean digitPresent = IsDigitPresent(password);
+            Boolean notNUll = ValidateNull(password);
             if (passLength && upperAndLowerPresent && digitPresent)    //if all the conditions are true
             {
                 //Console.WriteLine("Valid");
