@@ -65,7 +65,7 @@ namespace Problem
             {
                 if (!password.Any(char.IsDigit))
                 {
-                    throw new Exception("passwor should have one digit at least");
+                    throw new Exception("password should have one digit at least");
                 }
                 return true;
             }
@@ -84,14 +84,14 @@ namespace Problem
                 if (string.IsNullOrWhiteSpace(password))
                 {
                     throw new Exception("The password cannot be null");
-                   
+
                 }
                 return true;
 
             }
             catch (Exception e)
             {
-                //    Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);
                 return false;
             }
         }
@@ -103,19 +103,27 @@ namespace Problem
             Boolean upperAndLowerPresent = IsUpperAndLowerCasePresent(password);
             Boolean digitPresent = IsDigitPresent(password);
             Boolean notNUll = ValidateNull(password);
-            if (passLength && upperAndLowerPresent && digitPresent)    //if all the conditions are true
+
+
+
+            try
             {
-                //Console.WriteLine("Valid");
-                //Console.ReadLine();
+                if (!(passLength && upperAndLowerPresent && digitPresent && notNUll))
+                {
+                    //Console.WriteLine("Valid");
+                    //Console.ReadLine();
+                    throw new Exception("Password is not Valid");
+                }
                 return true;
             }
-            else                                                       //else
+            catch (Exception e)
             {
-                //Console.WriteLine("Invalid");
-                //Console.ReadLine();
-                return false;
+                throw new Exception("Password is not Valid");
+
             }
+
+
         }
-       
+
     }
 }
