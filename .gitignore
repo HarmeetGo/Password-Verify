@@ -1,0 +1,6 @@
+#ignore bin, obj, .vs directories
+.vs/*
+Password Verify/bin/*
+Password Verify/obj/*
+PasswordTestCases/bin/*
+PasswordTestCases/obj/*
